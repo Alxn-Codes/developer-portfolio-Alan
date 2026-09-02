@@ -15,6 +15,9 @@ import {
   Languages,
 } from "lucide-react";
 
+import { GlassTile } from "@/components/GlassTile";
+import { CursorTrail } from "@/components/CursorTrail";
+
 const HeroScene = lazy(() =>
   import("@/components/HeroScene").then((m) => ({ default: m.HeroScene })),
 );
@@ -185,17 +188,11 @@ function Portfolio() {
       <Section id="skills" eyebrow="Toolkit" title="Skills I build with">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((s) => (
-            <motion.div
-              key={s.label}
-              variants={fadeUp}
-              whileHover={{ y: -6, rotateX: 6, rotateY: -6 }}
-              style={{ transformPerspective: 800 }}
-              className="glass-panel rounded-xl p-5"
-            >
+            <GlassTile key={s.label} variants={fadeUp}>
               <s.icon className="h-5 w-5 text-primary" />
               <h3 className="mt-4 text-lg font-semibold">{s.label}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{s.note}</p>
-            </motion.div>
+            </GlassTile>
           ))}
         </div>
         <motion.p variants={fadeUp} className="pt-2 text-sm text-muted-foreground">
