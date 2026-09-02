@@ -1,4 +1,5 @@
 import { useRef, type ReactNode } from "react";
+import type { Variants } from "motion/react";
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "motion/react";
 
 /**
@@ -12,7 +13,7 @@ export function GlassTile({
 }: {
   children: ReactNode;
   className?: string;
-  variants?: Record<string, unknown>;
+  variants?: Variants | undefined;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
