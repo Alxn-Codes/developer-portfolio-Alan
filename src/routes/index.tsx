@@ -127,6 +127,7 @@ function Portfolio() {
             <HeroScene />
           </Suspense>
         </div>
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-background via-background/75 to-transparent" />
 
         <motion.div
           initial={{ opacity: 0, y: 28 }}
