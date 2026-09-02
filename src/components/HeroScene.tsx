@@ -8,7 +8,7 @@ function Cluster() {
   const width = useThree((s) => s.size.width);
   const mobile = width < 768;
   const baseX = mobile ? 0.9 : 2.0;
-  const baseY = mobile ? 2.4 : 0.2;
+  const baseY = mobile ? 3.0 : 0.2;
   const scale = mobile ? 0.55 : 0.85;
   useFrame((state, raw) => {
     const dt = Math.min(raw, 0.05);
