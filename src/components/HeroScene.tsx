@@ -1,21 +1,26 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, Environment, Lightformer, Icosahedron, Torus, Box } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import * as THREE from "three";
 
 function Cluster() {
   const group = useRef<THREE.Group>(null);
+  const width = useThree((s) => s.size.width);
+  const mobile = width < 768;
+  const baseX = mobile ? 0.9 : 2.0;
+  const baseY = mobile ? 2.4 : 0.2;
+  const scale = mobile ? 0.55 : 0.85;
   useFrame((state, raw) => {
     const dt = Math.min(raw, 0.05);
     if (!group.current) return;
     group.current.rotation.y += dt * 0.25;
     const { x, y } = state.pointer;
     group.current.rotation.x += (y * 0.25 - group.current.rotation.x) * 0.05;
-    group.current.position.x += (2.0 + x * 0.5 - group.current.position.x) * 0.05;
+    group.current.position.x += (baseX + x * 0.4 - group.current.position.x) * 0.05;
   });
 
   return (
-    <group ref={group} position={[2.0, 0.2, 0]} scale={0.55}>
+    <group ref={group} position={[baseX, baseY, 0]} scale={scale}>
       <Float speed={1.4} rotationIntensity={0.6} floatIntensity={1.2}>
         <Icosahedron args={[1.35, 1]} position={[0, 0, 0]}>
           <meshStandardMaterial
