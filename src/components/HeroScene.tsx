@@ -11,11 +11,11 @@ function Cluster() {
     group.current.rotation.y += dt * 0.25;
     const { x, y } = state.pointer;
     group.current.rotation.x += (y * 0.25 - group.current.rotation.x) * 0.05;
-    group.current.position.x += (2.6 + x * 0.5 - group.current.position.x) * 0.05;
+    group.current.position.x += (2.0 + x * 0.5 - group.current.position.x) * 0.05;
   });
 
   return (
-    <group ref={group} position={[2.6, 0.2, 0]} scale={0.55}>
+    <group ref={group} position={[2.0, 0.2, 0]} scale={0.55}>
       <Float speed={1.4} rotationIntensity={0.6} floatIntensity={1.2}>
         <Icosahedron args={[1.35, 1]} position={[0, 0, 0]}>
           <meshStandardMaterial
