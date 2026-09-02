@@ -122,6 +122,7 @@ const certifications = [
 function Portfolio() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      <CursorTrail />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[80vh] hero-glow" />
 
       <header className="relative flex min-h-screen flex-col justify-center">
