@@ -54,7 +54,7 @@ export function GlassTile({
   return (
     <motion.div
       ref={ref}
-      variants={variants}
+      {...(variants ? { variants } : {})}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
       style={{ perspective: 900 }}
